@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">Image Gallery</h1>
+
+    <!-- Filter Buttons -->
+    <div class="buttons">
+        <button onclick="filtersection('all')">All</button>
+        <button onclick="filtersection('nature')">Nature</button>
+        <button onclick="filtersection('city')">City</button>
+        <button onclick="filtersection('animal')">Animals</button>
+        <button onclick="filtersection('people')">People</button>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+
+        <div class="gallery-item people">
+            <img src="images/people1.jpg" alt="people">
+        </div>
+
+        <div class="gallery-item people">
+            <img src="images/people2.jpg" alt="people">
+        </div>
+
+        <div class="gallery-item animal">
+            <img src="images/animal1.jpg" alt="animal">
+        </div>
+
+        <div class="gallery-item animal">
+            <img src="images/animal2.jpg" alt="animal">
+        </div>
+
+        <div class="gallery-item city">
+            <img src="images/city1.jpg" alt="city">
+        </div>
+
+        <div class="gallery-item city">
+            <img src="images/city2.jpg" alt="city">
+        </div>
+
+        <div class="gallery-item nature">
+            <img src="images/nature1.jpg" alt="nature">
+        </div>
+
+        <div class="gallery-item nature">
+            <img src="images/nature2.jpg" alt="nature">
+        </div>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close">&times;</span>
+
+        <button class="prev">&#10094;</button>
+
+        <img id="lightboximg" src="" alt="">
+
+        <button class="next">&#10095;</button>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
