@@ -7,14 +7,17 @@ const closebtn = document.querySelector(".close");
 const prevbtn = document.querySelector(".prev");
 const nextbtn = document.querySelector(".next");
 
+let currentimages=[];
 let currentIndex = 0;
 
 /* OPEN LIGHTBOX */
-galleryImages.forEach((img, index) => {
+galleryImages.forEach((img) => {
     img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboximg.src = img.src;
-        currentIndex = index;
+        currentimages=Array.from(document.querySelectorAll(".gallery-item"))
+                            .filter(item=>item.style.display!=="none")
+                            .map(item=>item.querySelector("img"));
+                            lightbox.style.display="flex";
+                            lightboximg.src=img.src;
     });
 });
 
@@ -38,19 +41,19 @@ lightboximg.addEventListener("click", (e) => {
 /* NEXT */
 nextbtn.addEventListener("click", () => {
     currentIndex++;
-    if (currentIndex >= galleryImages.length) {
+    if (currentIndex >= currentimages.length) {
         currentIndex = 0;
     }
-    lightboximg.src = galleryImages[currentIndex].src;
+    lightboximg.src = currentimages[currentIndex].src;
 });
 
 /* PREVIOUS */
 prevbtn.addEventListener("click", () => {
     currentIndex--;
     if (currentIndex < 0) {
-        currentIndex = galleryImages.length - 1;
+        currentIndex = currentimages.length - 1;
     }
-    lightboximg.src = galleryImages[currentIndex].src;
+    lightboximg.src = currentimages[currentIndex].src;
 });
 
 /* FILTER FUNCTION */
